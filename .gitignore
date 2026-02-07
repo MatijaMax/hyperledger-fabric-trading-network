@@ -34,3 +34,5 @@ go.work.sum
 
 # fabric-samples
 fabric-samples/
+vendor/
+chaincode/vendor
