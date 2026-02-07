@@ -3,9 +3,9 @@ package models
 type TraderType string
 
 const (
-	Jewel TraderType = "JEWEL"
-	Gold  TraderType = "GOLD"
-	Crown TraderType = "CROWN"
+	Food  TraderType = "FOOD"
+	Gem   TraderType = "GEM"
+	Movie TraderType = "MOVIE"
 )
 
 type Trader struct {
