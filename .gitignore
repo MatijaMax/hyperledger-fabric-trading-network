@@ -31,8 +31,3 @@ go.work.sum
 # .idea/
 # .vscode/
 *pdf
-
-# fabric-samples
-fabric-samples/
-vendor/
-chaincode/vendor

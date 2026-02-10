@@ -14,6 +14,10 @@
 # this may be commented out to resolve installed version of tools if desired
 alias docker-compose='docker compose'
 shopt -s expand_aliases
+export FABRIC_VERSION=2.5.9
+export CA_VERSION=1.5.7
+export DOCKER_BUILDKIT=0
+export COMPOSE_DOCKER_CLI_BUILD=0
 
 export PATH=${PWD}/bin:$PATH
 export FABRIC_CFG_PATH=${PWD}/configtx
@@ -250,7 +254,8 @@ services:
 
   orderer.example.com:
     container_name: orderer.example.com
-    image: hyperledger/fabric-orderer:2.2.6
+    image: hyperledger/fabric-orderer:2.5.9
+    privileged: true
     environment:
       - FABRIC_LOGGING_SPEC=INFO
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
@@ -288,7 +293,8 @@ services:
         for ((j = 0; j < $PEER_PER_ORGANIZATION_NUMBER; ++j)) do
           echo "  peer$j.org$i.example.com:
     container_name: peer$j.org$i.example.com
-    image: hyperledger/fabric-peer:2.2.6
+    image: hyperledger/fabric-peer:2.5.9
+    privileged: true
     environment:
       #Generic peer variables
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
@@ -342,7 +348,8 @@ services:
 
       echo "  cli:
     container_name: cli
-    image: hyperledger/fabric-tools:2.2.6
+    image: hyperledger/fabric-tools:2.5.9
+    privileged: true
     tty: true
     stdin_open: true
     environment:
@@ -529,7 +536,7 @@ CC_VERSION="1.0"
 # Chaincode definition sequence
 CC_SEQUENCE=1
 # default image tag
-IMAGETAG="2.2.6"
+IMAGETAG="2.5.9"
 # default ca image tag
 CA_IMAGETAG="1.5.7"
 # default database

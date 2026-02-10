@@ -19,7 +19,8 @@ services:
 
   orderer.example.com:
     container_name: orderer.example.com
-    image: hyperledger/fabric-orderer:2.2.6
+    image: hyperledger/fabric-orderer:2.5.9
+    privileged: true
     environment:
       - FABRIC_LOGGING_SPEC=INFO
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
@@ -54,7 +55,8 @@ services:
 
   peer0.org1.example.com:
     container_name: peer0.org1.example.com
-    image: hyperledger/fabric-peer:2.2.6
+    image: hyperledger/fabric-peer:2.5.9
+    privileged: true
     environment:
       #Generic peer variables
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
@@ -105,7 +107,8 @@ services:
 
   peer1.org1.example.com:
     container_name: peer1.org1.example.com
-    image: hyperledger/fabric-peer:2.2.6
+    image: hyperledger/fabric-peer:2.5.9
+    privileged: true
     environment:
       #Generic peer variables
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
@@ -156,7 +159,8 @@ services:
 
   peer2.org1.example.com:
     container_name: peer2.org1.example.com
-    image: hyperledger/fabric-peer:2.2.6
+    image: hyperledger/fabric-peer:2.5.9
+    privileged: true
     environment:
       #Generic peer variables
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
@@ -207,7 +211,8 @@ services:
 
   peer0.org2.example.com:
     container_name: peer0.org2.example.com
-    image: hyperledger/fabric-peer:2.2.6
+    image: hyperledger/fabric-peer:2.5.9
+    privileged: true
     environment:
       #Generic peer variables
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
@@ -258,7 +263,8 @@ services:
 
   peer1.org2.example.com:
     container_name: peer1.org2.example.com
-    image: hyperledger/fabric-peer:2.2.6
+    image: hyperledger/fabric-peer:2.5.9
+    privileged: true
     environment:
       #Generic peer variables
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
@@ -309,7 +315,8 @@ services:
 
   peer2.org2.example.com:
     container_name: peer2.org2.example.com
-    image: hyperledger/fabric-peer:2.2.6
+    image: hyperledger/fabric-peer:2.5.9
+    privileged: true
     environment:
       #Generic peer variables
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
@@ -360,7 +367,8 @@ services:
 
   peer0.org3.example.com:
     container_name: peer0.org3.example.com
-    image: hyperledger/fabric-peer:2.2.6
+    image: hyperledger/fabric-peer:2.5.9
+    privileged: true
     environment:
       #Generic peer variables
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
@@ -411,7 +419,8 @@ services:
 
   peer1.org3.example.com:
     container_name: peer1.org3.example.com
-    image: hyperledger/fabric-peer:2.2.6
+    image: hyperledger/fabric-peer:2.5.9
+    privileged: true
     environment:
       #Generic peer variables
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
@@ -462,7 +471,8 @@ services:
 
   peer2.org3.example.com:
     container_name: peer2.org3.example.com
-    image: hyperledger/fabric-peer:2.2.6
+    image: hyperledger/fabric-peer:2.5.9
+    privileged: true
     environment:
       #Generic peer variables
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
@@ -513,7 +523,8 @@ services:
 
   cli:
     container_name: cli
-    image: hyperledger/fabric-tools:2.2.6
+    image: hyperledger/fabric-tools:2.5.9
+    privileged: true
     tty: true
     stdin_open: true
     environment:

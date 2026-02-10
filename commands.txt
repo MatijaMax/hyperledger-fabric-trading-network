@@ -27,3 +27,34 @@
         export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
         export CORE_PEER_ADDRESS=localhost:9051     
         peer chaincode query -C mychannel -n basic -c '{"Args":["ReadAsset","asset6"]}'
+
+# GO versioning fix (terminal session)
+    rm go.sum
+    rm -rf vendor
+    export PATH=$PATH:$(go env GOPATH)/bin
+    go1.23.0 download
+    go1.23.0 get golang.org/x/exp/maps@v0.0.0-20231006140011-7918f672742d
+    go1.23.0 get golang.org/x/exp/slices@v0.0.0-20231006140011-7918f672742d
+    alias go=go1.23.0
+    go version
+    go mod tidy
+    go mod vendor
+    ./network.sh down
+    docker rm -f $(docker ps -aq)
+    docker volume prune -f
+
+    # removed this
+    infoln "Vendoring Go dependencies at $CC_SRC_PATH"
+    pushd $CC_SRC_PATH
+    GO111MODULE=on go mod vendor
+    popd
+    successln "Finished vendoring Go dependencies" deployCC
+
+# GO versioning fix (final)
+export PATH=$PATH:$(go env GOPATH)/bin
+go install golang.org/dl/go1.21.6@latest
+go1.21.6 download
+export GOTOOLCHAIN=local
+rm -rf vendor go.sum
+go1.21.6 mod tidy
+go1.21.6 mod vendor

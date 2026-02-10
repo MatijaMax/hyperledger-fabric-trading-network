@@ -36,9 +36,9 @@ func GetInitialChainState() InitialChainState {
 	}
 
 	movies := []Product{
-		{ID: ToProductID("si1"), Name: "Eyes Wide Shut", Price: 26, Quantity: 12, TraderID: "tr3"},
-		{ID: ToProductID("pi1"), Name: "Iron Man", Price: 24, Quantity: 12, TraderID: "tr3"},
-		{ID: ToProductID("br1"), Name: "Shrek 2", Price: 25, Quantity: 12, TraderID: "tr3"},
+		{ID: ToProductID("ews1"), Name: "Eyes Wide Shut", Price: 26, Quantity: 12, TraderID: "tr3"},
+		{ID: ToProductID("im1"), Name: "Iron Man", Price: 24, Quantity: 12, TraderID: "tr3"},
+		{ID: ToProductID("sh1"), Name: "Shrek", Price: 25, Quantity: 12, TraderID: "tr3"},
 	}
 
 	allProducts := append(foodItems, gems...)
