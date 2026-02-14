@@ -28,7 +28,7 @@
         export CORE_PEER_ADDRESS=localhost:9051     
         peer chaincode query -C mychannel -n basic -c '{"Args":["ReadAsset","asset6"]}'
 
-# GO versioning fix (terminal session)
+# GO versioning fix (terminal session, random stuff)
     rm go.sum
     rm -rf vendor
     export PATH=$PATH:$(go env GOPATH)/bin
@@ -58,3 +58,4 @@ export GOTOOLCHAIN=local
 rm -rf vendor go.sum
 go1.21.6 mod tidy
 go1.21.6 mod vendor
+

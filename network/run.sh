@@ -11,3 +11,5 @@
 # Init ledger
 cd utils
 ./init_ledger.sh
+
+cd .. && ./test-chaincode.sh
