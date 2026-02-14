@@ -1,0 +1,31 @@
+Method: POST
+URI: http://localhost:3000/login
+Body:
+{
+    "user_id": "jj1" 
+}   
+
+Method: GET
+URI: http://localhost:3000/products/tradechannel1
+Headers:
+    Authorization: Bearer <YOUR_TOKEN>
+
+Method: POST
+URI: http://localhost:3000/users/tradechannel1
+Headers:
+    Authorization: Bearer <ADMIN_TOKEN>
+Body:
+{
+    "id": "user2",
+    "name": "Bruce",
+    "last_name": "Wayne",
+    "email": "batman@gotham.com",
+    "account_balance": 1000000,
+    "receipts_ids": []
+}
+
+Method: POST
+URI: http://localhost:3000/product/buy/to1/tradechannel1
+Headers:
+    Authorization: Bearer <USER_TOKEN>
+
